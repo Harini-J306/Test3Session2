@@ -1,6 +1,5 @@
-GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
-gcc -g p2final.c
- gdb a.out
+~/Test3Session2$ gcc -g p2final.c
+~/Test3Session2$ gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -33,7 +32,7 @@ input_fraction () at p2final.c:8
 enter the fraction
 11    scanf("%d%d",&f.num,&f.den);
 (gdb) n
-3
+4
 5
 12    return f;
 (gdb) n
@@ -50,8 +49,8 @@ input_fraction () at p2final.c:8
 enter the fraction
 11    scanf("%d%d",&f.num,&f.den);
 (gdb) n
-4
 5
+7
 12    return f;
 (gdb) n
 13  }
@@ -67,8 +66,8 @@ input_fraction () at p2final.c:8
 enter the fraction
 11    scanf("%d%d",&f.num,&f.den);
 (gdb) n
-6
-7
+3
+4
 12    return f;
 (gdb) n
 13  }
@@ -80,14 +79,16 @@ smallest_fraction (f1=..., f2=..., f3=...) at p2final.c:16
 16    int common_denominator=f1.den*f2.den*f3.den;
 (gdb) n
 17    int num1=f1.num* common_denominator/f1.den;
-(gdb) n
+(gdb) 
 18    int num2=f2.num* common_denominator/f2.den;
 (gdb) n
 19    int num3=f3.num* common_denominator/f3.den;
 (gdb) n
 20    if(num1< num2 && num1<num3)
 (gdb) n
-21      return f1;
+22    else if(num2<num3)
+(gdb) n
+23      return f2;
 (gdb) n
 26  }
 (gdb) n
@@ -95,9 +96,9 @@ main () at p2final.c:38
 38    output(f1,f2,f3,smallest);
 (gdb) s
 output (f1=..., f2=..., f3=..., smallest=...) at p2final.c:29
-29    printf("the smallest of%d%d,%d%d,%d%d is  %d%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,smallest .num,smallest.den);
+29    printf("the smallest of%d/%d,%d/%d,%d/%d is  %d/%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,smallest .num,smallest.den);
 (gdb) n
-the smallest of35,45,67 is  35
+the smallest of4/5,5/7,3/4 is  5/7
 30  }
 (gdb) n
 main () at p2final.c:39
@@ -105,4 +106,4 @@ main () at p2final.c:39
 (gdb) n
 40  }(gdb) c
 Continuing.
-[Inferior 1 (process 1774) exited normally] 
+[Inferior 1 (process 2692) exited normally]

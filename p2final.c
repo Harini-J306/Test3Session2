@@ -26,7 +26,7 @@ Fraction smallest_fraction(Fraction f1,Fraction f2,Fraction f3)
 }
 void output(Fraction f1,Fraction f2,Fraction f3,Fraction smallest)
 {
-  printf("the smallest of%d%d,%d%d,%d%d is  %d%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,smallest .num,smallest.den);
+  printf("the smallest of%d/%d,%d/%d,%d/%d is  %d/%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,smallest .num,smallest.den);
 }
 int main()
 {
