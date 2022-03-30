@@ -1,30 +1,38 @@
 #include<stdio.h>
-void input_n_and_r(int*n,int*r)
+void input(int *n,int *r)
 {
-printf("enter the total number of objescts and the number of objects you choose\n");
-  scanf("%d%d",n,r);
-}
-int ncr(int n,int r)
-{
-  int i,fact_n=1,fact_r,fact_n_r,ncr;
-  for (i=1;i<=n;i++)
-    fact_n=fact_n*i;
-  for(i=1;i<=r;i++)
-    fact_r=fact_r*i;
-  for(i=1;i<=n-r;i++)
-  fact_n_r=fact_n_r*i;
-  ncr=fact_n/(fact_r*fact_n_r);
-  return ncr;
-}
-void  output(int n,int r,int result)
-{
-  printf("the combination of %d and %d is %d",n,r,result);
-}
-int main()
-{
-  int n,r,result;
-  input_n_and_r(&n,&r);
-  result= ncr(n,r);
-  output(n,r,result);
+  printf("enter the N\n");
+  scanf("%d",n);
+  printf("enter the R\n");
+  scanf("%d",r);
   return 0;
 }
+
+void factorial(int n ,int r,int *ncr)
+{ 
+  int nf,rf,nmrf;
+  nf=1;
+  for(int i=1;i<n;i++)
+    nf=nf*i;
+  rf=1;
+  for(int i=1;i<r;i++)
+    rf=rf*i;
+  nmrf=1;
+  for(int i=1;i<(n-r);i++)
+    nmrf=nmrf*i;
+  ncr=(nf/(nmrf*rf));
+}
+
+void output(int n,int r,int c)
+{
+  printf(" %dC%d = %d ",n,r,c);
+}
+
+int main()
+{
+  int n,r,nCr;
+  input(n,r);
+  factorial(n,r,nCr);
+  output(n,r,nCr);
+  return 0;
+  }
